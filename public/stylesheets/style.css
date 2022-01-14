@@ -123,3 +123,7 @@ tr:nth-child(2n) td{
 .first{
   margin-right:16px;
 }
+.personal-info-row{
+  color:black;
+  text-decoration: none;
+}
