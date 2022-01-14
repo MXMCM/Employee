@@ -1,0 +1,48 @@
+extends layout
+
+block content
+    form(action='/add' method='post')
+        lable(for='firstname') First Name:
+        input(id='firstname' name='firstname' type='text')
+
+        lable(for='lastname') Last Name:
+        input(id='lastname' name='lastname' type='text')
+
+        lable(for='jobtitle') Job Title:
+        select(id='jobtitle' name='jobtitle')
+            each title in jobtitles
+                option(value=title) #{title}
+
+        div.address
+            div.streetline
+                div.streetline1
+                    lable(for='streetline1') Street Line 1:
+                    input(id='streetline1' name='streetline1' type='text')
+
+                div.streetline2
+                    lable(for='streetline2') Street Line 2:
+                    input(id='streetline2' name='streetline2' type='text')
+            div.territory
+                div.city
+                    lable(for='city') City:
+                    input(id='city' name='city' type='text')
+
+                div.state
+                    lable(for='state') State:
+                    select(id='state' name='state')
+                        each state in stateslist
+                            option(value=state) #{state}
+                div.zip
+                    lable(for='zip') Zip Code:
+                    input(id='zip' name='zip' type='text')
+
+        div.personal-info-row
+            div.phone
+                lable(for='phonenumber') phonenumber:
+                input(id='phonenumber' name='phonenumber' type='text')
+
+            div.year
+                lable(for='yearhired') Year Hired:
+                input(id='yearhired' name='yearhired' type='text')
+
+        button(type='submit') Submit
