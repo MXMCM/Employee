@@ -1,11 +1,13 @@
 mixin employeeForm(url, employee, jobtitles, stateslist)
 
-    form(action=url method='post')
-        lable(for='firstname') First Name:
-        input(id='firstname' name='firstname' type='text' value=employee.firstname)
-
-        lable(for='lastname') Last Name:
-        input(id='lastname' name='lastname' type='text' value=employee.lastname)
+    form.employee-form(action=url method='post')
+        div.name-row
+            div.first
+                lable(for='firstname') First Name:
+                input(id='firstname' name='firstname' type='text' value=employee.firstname)
+            div.last
+                lable(for='lastname') Last Name:
+                input(id='lastname' name='lastname' type='text' value=employee.lastname)
 
         lable(for='jobtitle') Job Title:
         select(id='jobtitle' name='jobtitle')
@@ -43,5 +45,8 @@ mixin employeeForm(url, employee, jobtitles, stateslist)
             div.year
                 lable(for='yearhired') Year Hired:
                 input(id='yearhired' name='yearhired' type='text' value=employee.yearhired)
-
-        button(type='submit') Submit
+        div.form-buttons
+            a.button.cancel(href='/') Cancel
+            if employee.id
+                a.button.delete(href=`/delete/${employee.id}`) Delete Employee
+            button.button.submit(type='submit') Submit
